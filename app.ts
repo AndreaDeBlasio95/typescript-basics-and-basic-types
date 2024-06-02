@@ -1,15 +1,34 @@
-function add(num1: number, num2: number, showResult: boolean, phrase: string) {
-  const result = num1 + num2;
-  if (showResult === true) {
-    console.log(phrase + result);
-  } else {
-    return result;
-  }
+//                object, Array
+
+// object types explicit
+const person2: object = {
+  name: "Andrea",
+  age: 28,
+};
+
+// object types explicit with properties
+const person3: {
+  name: string;
+  age: number;
+} = {
+  name: "Andrea",
+  age: 28,
+};
+
+// object types - Thi is the best syntax to use
+const person = {
+  name: "Andrea",
+  age: 28,
+  hobbies: ["Sports", "Cooking"],
+};
+
+// console.log(person.nickname); throw a error because nickname is not a property of person
+
+let favoriteActivities: string[];
+favoriteActivities = ["Sports"];
+
+console.log(person.name);
+
+for (const hobby of person.hobbies) {
+  console.log(hobby.toUpperCase());
 }
-
-const number1 = 5;
-const number2 = 2.8;
-const printResult = true;
-const resultPhrase = "Result is: ";
-
-add(number1, number2, printResult, resultPhrase);
