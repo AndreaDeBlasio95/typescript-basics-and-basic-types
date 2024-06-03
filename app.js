@@ -1,35 +1,24 @@
-//                Union Types, Literal Types, Type Aliases
-function combine(input1, // Union Types
-input2, // Type Alias
-resultConversion // Literal Types
-) {
-    var result;
-    if ((typeof input1 === "number" && typeof input2 === "number") ||
-        resultConversion === "as-number") {
-        result = +input1 + +input2;
-    }
-    else {
-        result = input1.toString() + input2.toString();
-    }
-    return result;
+//                Type: unknown
+// Description: Unknown type is a type that we can assign any value to it.
+// It is similar to the any type, but it is more restrictive.
+// We can't assign unknown type to other types without explicit type checking.
+// We can't call methods on unknown type.
+// We can't access properties on unknown type.
+// We can't assign unknown type to other types without explicit type checking.
+// unknown type is better than any type because it is more restrictive, and it helps us to avoid errors.
+var userInput;
+var userName;
+userInput = 5;
+userInput = "Andrea";
+if (typeof userInput === "string") {
+    userName = userInput;
 }
-var combinedAges = combine(30, 26, "as-number");
-console.log(combinedAges);
-var combinedStringAges = combine(30, 26, "as-number");
-console.log(combinedStringAges);
-var combinedNames = combine("Andrea", "Giulia", "as-text");
-console.log(combinedNames);
-//  Type Alias Example
-// from this
-function greet(user) {
-    console.log("Hi, I am " + user.name);
+//                Type: never
+// Description: Never type represents the type of values that never occur.
+// It is used when we know that something is never going to occur.
+// For example, a function that throws an error or a function that never returns.
+// function that throws an error
+function generateError(message, code) {
+    throw { message: message, errorCode: code };
 }
-function isOlder(user, checkAge) {
-    return checkAge > user.age;
-}
-function greetWithAlias(user) {
-    console.log("Hi, I am " + user.name);
-}
-function isOlderWithAlias(user, checkAge) {
-    return checkAge > user.age;
-}
+generateError("An error occurred!", 500);
